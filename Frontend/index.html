@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Health Coach</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="app">
+      <header>
+        <div>
+          <p class="eyebrow">MVP</p>
+          <h1>AI Health Coach</h1>
+          <p class="subtitle">
+            Ask a quick question about habits, stress, sleep, or nutrition. Replies stay concise and actionable.
+          </p>
+        </div>
+        <div class="status">
+          <span class="dot" id="status-dot"></span>
+          <span id="status-text">Ready</span>
+        </div>
+      </header>
+
+      <main>
+        <div id="messages" class="messages" aria-live="polite"></div>
+        <form id="coach-form" autocomplete="off">
+          <label for="message">Your question</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            placeholder="Example: I'm feeling stressed and my sleep has been off—how can I reset this week?"
+            required
+          ></textarea>
+          <div class="controls">
+            <input
+              type="url"
+              id="api-url"
+              name="api-url"
+              placeholder="Backend URL (default http://127.0.0.1:5000)"
+            />
+            <button type="submit" id="submit-btn">Send to coach</button>
+          </div>
+        </form>
+      </main>
+
+      <footer>
+        <p class="hint">
+          Set <code>OPENAI_API_KEY</code> on the backend for AI replies. Without it, the server uses a rule-based fallback.
+        </p>
+      </footer>
+    </div>
+
+    <script src="./App.js"></script>
+  </body>
+</html>
